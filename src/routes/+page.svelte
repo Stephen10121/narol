@@ -1,26 +1,45 @@
 <script lang="ts">
     import { Button } from "@/components/ui/button";
-    import { Mail, Phone } from "@lucide/svelte"; 
+    import { Mail, Phone } from "@lucide/svelte";
+    import heroImage from "@/assets/images/hero.jpg?enhanced";
+    import outsideImg from "@/assets/images/outside3.jpg?enhanced";
+    import outsideDark from "@/assets/images/outsidedark.jpg?enhanced";
+    import outsideNoGrass from "@/assets/images/outsidenograss.jpg?enhanced";
+    import img19 from "@/assets/images/img19.jpg?enhanced";
+
+    import logo from "@/assets/logonotext.png";
+
+    function scrollToSection(id: string) {
+        const element = document.getElementById(id)
+        element?.scrollIntoView({ behavior: "smooth" })
+    }
 </script>
 
 <div class="min-h-screen bg-white">
     <header class="bg-white border-b sticky top-0 left-0 z-50">
-        <div class="w-full px-6 md:px-12 lg:px-20 py-5">
+        <div class="w-full px-6 md:px-12 lg:px-20 py-2">
             <div class="flex items-center w-full justify-between">
-                <h2 class="text-xl font-bold text-gray-900">
-                    NAROL Heating & Cooling
-                </h2>
+                <div class="flex items-center">
+                    <enhanced:img
+                        src={logo}
+                        alt="NAROL Heating & Cooling LLC Logo"
+                        class="h-12"
+                    />
+                    <h2 class="text-xl font-bold text-gray-900">
+                        AROL Heating & Cooling LLC
+                    </h2>
+                </div>
                 <nav class="hidden md:flex items-center gap-8 text-sm">
-                    <a href="#services" class="text-gray-600 hover:text-gray-900">Services</a>
-                    <a href="#about" class="text-gray-600 hover:text-gray-900">About Us</a>
-                    <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                    <button onclick={() => scrollToSection("servicesSection")} class="text-gray-600 hover:text-gray-900">Services</button>
+                    <button onclick={() => scrollToSection("aboutSection")} class="text-gray-600 hover:text-gray-900">About Us</button>
+                    <button onclick={() => scrollToSection("contactSection")} class="text-gray-600 hover:text-gray-900">Contact</button>
                 </nav>
             </div>
         </div>
     </header>
 
     <section class="grid md:grid-cols-2 min-h-[600px]">
-        <div class="bg-blue-50/30 flex items-center px-6 md:px-12 lg:px-20 py-16 md:py-0">
+        <div class="bg-blue-50/30 flex items-center px-6 md:px-12 lg:px-20 py-16 md:py-0 max-h-screen">
             <div class="max-w-xl">
                 <p class="text-sm uppercase tracking-wider text-gray-600 mb-4">
                     Quality HVAC Services
@@ -31,6 +50,7 @@
                 <Button 
                     size="lg" 
                     class="rounded-full px-8 bg-transparent border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                    onclick={() => scrollToSection("contactSection")}
                 >
                     Contact
                 </Button>
@@ -38,15 +58,15 @@
         </div>
 
         <div class="relative min-h-[400px] md:min-h-[600px] max-h-screen overflow-hidden isolate">
-            <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161629%20%281%29-0DrQaYkZIh8MyRO1ONoLa2IMdCFlGA.jpg"
+            <enhanced:img
+                src={heroImage}
                 alt="HVAC Installation"
                 class="object-cover"
             />
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-white">
+    <section class="py-20 px-6 bg-white" id="servicesSection">
     <div class="container mx-auto max-w-7xl">
         <div class="grid md:grid-cols-2 gap-16 mb-16">
         <div>
@@ -59,13 +79,13 @@
             Where We Excel
             </p>
             <p class="text-lg text-gray-700">
-            Expert HVAC Services for Washington
+            Expert HVAC Services in Washington
             </p>
         </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-200 p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
+        <div class="bluet p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
             <h3 class="text-2xl font-bold text-gray-900 mb-2">
             New HVAC Systems
             </h3>
@@ -74,7 +94,7 @@
             </p>
         </div>
 
-        <div class="bg-gray-200 p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
+        <div class="bluet p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
             <h3 class="text-2xl font-bold text-gray-900 mb-2">
             Mini Split Systems
             </h3>
@@ -83,7 +103,7 @@
             </p>
         </div>
 
-        <div class="bg-gray-200 p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
+        <div class="bluet p-8 rounded-sm min-h-[200px] flex flex-col justify-end">
             <h3 class="text-2xl font-bold text-gray-900 mb-2">
             System Repairs
             </h3>
@@ -109,8 +129,8 @@
         <div class="grid md:grid-cols-3 gap-6 mb-6">
         <div class="md:col-span-2 relative h-[400px] rounded-sm overflow-hidden group">
             <div class="w-full h-full overflow-hidden">
-                <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161629%20%282%29-c342PFgkKK1tU9H89WyVfOCjuKwFQ1.jpg"
+                <enhanced:img
+                    src={outsideImg}
                     alt="Professional Installation"
                     class="object-cover brightness-90 min-h-full"
                 />
@@ -127,8 +147,8 @@
 
         <div class="relative h-[400px] rounded-sm overflow-hidden">
             <div class="w-full h-full overflow-hidden">
-                <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161629%20%289%29-b9DtHbdBC00Wl7g7o7NboksMjXZfRp.jpg"
+                <enhanced:img
+                    src={outsideDark}
                     alt="Mini Split Installation"
                     class="object-cover brightness-90 min-h-full"
                 />
@@ -146,10 +166,10 @@
 
         <div class="grid md:grid-cols-3 gap-6">
         <div class="relative h-[300px] rounded-sm overflow-hidden">
-            <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161629%20%284%29-jeclAf8dBgcdTNVRXnUWsSENc0p6wF.jpg"
-            alt="Furnace Installation"
-            class="object-cover brightness-90"
+            <enhanced:img
+                src={img19}
+                alt="Furnace Installation"
+                class="object-cover brightness-90"
             />
             <div class="absolute bottom-8 left-8 bg-blue-100/95 p-6 max-w-xs">
             <h3 class="text-xl font-bold text-gray-900 mb-2">
@@ -162,10 +182,10 @@
         </div>
 
         <div class="relative h-[300px] rounded-sm overflow-hidden">
-            <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161628%20%282%29-SP9nnYX0kgPiKJMLXLWJYAoYGXKZPi.jpg"
-            alt="HVAC Unit"
-            class="object-cover brightness-90"
+            <enhanced:img
+                src={outsideNoGrass}
+                alt="Furnace Installation"
+                class="object-cover brightness-90"
             />
             <div class="absolute bottom-8 left-8 bg-blue-100/95 p-6 max-w-xs">
             <h3 class="text-xl font-bold text-gray-900 mb-2">
@@ -199,66 +219,66 @@
     <section id="services" class="py-20 px-6 bg-white">
     <div class="container mx-auto max-w-7xl">
         <div class="mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Expertise
-        </h2>
-        <p class="text-sm uppercase tracking-wider text-gray-600">
-            Comprehensive HVAC Solutions
-        </p>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Our Expertise
+            </h2>
+            <p class="text-sm uppercase tracking-wider text-gray-600">
+                Comprehensive HVAC Solutions
+            </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 mb-6">
-        <div class="bg-gray-200 p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-            New HVAC Systems Install
-            </h3>
-            <p class="text-gray-700">
-            Complete System Installations
-            </p>
-        </div>
+            <div class="redt p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                New HVAC Systems Install
+                </h3>
+                <p class="text-gray-700">
+                Complete System Installations
+                </p>
+            </div>
 
-        <div class="bg-gray-200 p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-            Mini Splits Install
-            </h3>
-            <p class="text-gray-700">
-            Ductless HVAC Systems
-            </p>
-        </div>
+            <div class="redt p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                Mini Splits Install
+                </h3>
+                <p class="text-gray-700">
+                Ductless HVAC Systems
+                </p>
+            </div>
 
-        <div class="bg-gray-200 p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-            Repairs on Existing Systems
-            </h3>
-            <p class="text-gray-700">
-            Expert Repair Services
-            </p>
-        </div>
+            <div class="redt p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                Repairs on Existing Systems
+                </h3>
+                <p class="text-gray-700">
+                Expert Repair Services
+                </p>
+            </div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-200 p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-            Duct Work
-            </h3>
-            <p class="text-gray-700">
-            Professional Ductwork Installation & Repair
-            </p>
-        </div>
+            <div class="redt p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                Duct Work
+                </h3>
+                <p class="text-gray-700">
+                Professional Ductwork Installation & Repair
+                </p>
+            </div>
 
-        <div class="bg-gray-200 p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-            Maintenance
-            </h3>
-            <p class="text-gray-700">
-            Regular System Maintenance Services
-            </p>
-        </div>
+            <div class="redt p-10 rounded-sm min-h-[220px] flex flex-col justify-end">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                Maintenance
+                </h3>
+                <p class="text-gray-700">
+                Regular System Maintenance Services
+                </p>
+            </div>
         </div>
     </div>
     </section>
 
-    <section id="about" class="grid md:grid-cols-2 min-h-[600px]">
+    <section id="aboutSection" class="grid md:grid-cols-2 min-h-[600px]">
     <div class="relative min-h-[400px] md:min-h-[600px] order-2 md:order-1">
         <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20251108_161629-dAYZoQjU4KqQe7TOTiAKYyNFYLRSug.jpg"
@@ -289,7 +309,7 @@
     </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 bg-gray-900 text-white">
+    <section id="contactSection" class="py-20 px-6 bg-gray-900 text-white">
     <div class="container mx-auto max-w-7xl">
         <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -316,8 +336,8 @@
             <Mail class="w-6 h-6" />
             <div>
                 <p class="text-sm text-gray-400 mb-1">Email</p>
-                <a href="mailto:narolhvac99@gmail.com" class="text-xl font-semibold hover:text-blue-400 break-all">
-                narolhvac99@gmail.com
+                <a href="mailto:narolhvac@gmail.com" class="text-xl font-semibold hover:text-blue-400 break-all">
+                narolhvac@gmail.com
                 </a>
             </div>
             </div>
@@ -338,17 +358,26 @@
     <footer class="bg-gray-950 text-gray-400 py-8 px-6">
     <div class="container mx-auto max-w-7xl">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-        <p>© 2025 by NAROL Heating & Cooling LLC</p>
+        <p>© {(new Date()).getFullYear()} by NAROL Heating & Cooling LLC</p>
         <div class="flex gap-8">
             <a href="/" class="hover:text-white">Accessibility Statement</a>
             <a href="/" class="hover:text-white">Privacy Policy</a>
         </div>
         </div>
         <div class="mt-6 text-center md:text-left">
-        <p class="text-xs">123-456-7890</p>
-        <p class="text-xs">info@mysite.com</p>
-        <p class="text-xs">500 Terry Francine Street, San Francisco, CA 94158</p>
+        <p class="text-xs">360-721-0802</p>
+        <p class="text-xs">narolhvac@gmail.com</p>
         </div>
     </div>
     </footer>
 </div>
+
+<style>
+    .bluet {
+        background-color: rgb(209, 231, 253);
+    }
+
+    .redt {
+        background-color: rgb(255, 227, 227);
+    }
+</style>
