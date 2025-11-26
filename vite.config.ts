@@ -5,7 +5,7 @@ import { enhancedImages } from '@sveltejs/enhanced-img';
 
 export default defineConfig({
 	server: {
-		allowedHosts: [ "narolhvac.com" ]
+		allowedHosts: [ ".narolhvac.com" ]
 	},
 	plugins: [
 		tailwindcss(),
