@@ -26,7 +26,7 @@
                         class="h-12"
                     />
                     <h2 class="text-xl font-bold text-gray-900">
-                        AROL Heating & Cooling LLC
+                        <span style="display:none;">N</span>AROL Heating & Cooling LLC
                     </h2>
                 </div>
                 <nav class="hidden md:flex items-center gap-8 text-sm">
